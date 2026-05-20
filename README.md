@@ -218,6 +218,11 @@ The Streamlit frontend works correctly in local environments.
 
 Deployment on Streamlit Cloud may face Binance regional restrictions because Binance blocks certain cloud-hosted IP ranges.
 
+## Screen shot
+
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/647cca11-2df6-4179-8f44-51aa48b16e08" />
+
+
 ## Author
 
 Balashanmugam R
