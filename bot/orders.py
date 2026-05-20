@@ -1,13 +1,15 @@
 from binance.exceptions import BinanceAPIException
+
 from bot.client import BinanceFuturesClient
 from bot.logging_config import logger
-
-client = BinanceFuturesClient().get_client()
 
 
 def place_order(symbol, side, order_type, quantity, price=None):
 
     try:
+
+        # Create client INSIDE function
+        client = BinanceFuturesClient().get_client()
 
         params = {
             "symbol": symbol.upper(),
@@ -16,8 +18,8 @@ def place_order(symbol, side, order_type, quantity, price=None):
             "quantity": quantity
         }
 
-        # Add LIMIT order parameters
         if order_type == "LIMIT":
+
             params["price"] = price
             params["timeInForce"] = "GTC"
 
@@ -30,11 +32,15 @@ def place_order(symbol, side, order_type, quantity, price=None):
         return response
 
     except BinanceAPIException as e:
+
         logger.error(f"Binance API Error: {e}")
 
-        raise Exception(f"Binance API Error: {e.message}")
+        raise Exception(
+            f"Binance API Error: {e.message}"
+        )
 
     except Exception as e:
+
         logger.error(f"Unexpected Error: {str(e)}")
 
         raise Exception(str(e))

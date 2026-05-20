@@ -10,25 +10,29 @@ class BinanceFuturesClient:
 
     def __init__(self):
 
-        api_key = (
-            os.getenv("BINANCE_API_KEY")
-            or st.secrets["BINANCE_API_KEY"]
-        )
+        api_key = os.getenv("BINANCE_API_KEY")
 
-        api_secret = (
-            os.getenv("BINANCE_API_SECRET")
-            or st.secrets["BINANCE_API_SECRET"]
-        )
+        api_secret = os.getenv("BINANCE_API_SECRET")
 
-        # IMPORTANT FIX
+        if not api_key:
+            api_key = st.secrets.get(
+                "BINANCE_API_KEY"
+            )
+
+        if not api_secret:
+            api_secret = st.secrets.get(
+                "BINANCE_API_SECRET"
+            )
+
         self.client = Client(
-            api_key=api_key,
-            api_secret=api_secret,
+            api_key,
+            api_secret,
             testnet=True
         )
 
-        # Futures Testnet URL
-        self.client.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
+        self.client.FUTURES_URL = (
+            "https://testnet.binancefuture.com/fapi"
+        )
 
     def get_client(self):
         return self.client
