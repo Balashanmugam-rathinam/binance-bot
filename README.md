@@ -212,6 +212,11 @@ The application validates:
 - WebSocket live price updates
 
 ---
+## Deployment Note
+
+The Streamlit frontend works correctly in local environments.
+
+Deployment on Streamlit Cloud may face Binance regional restrictions because Binance blocks certain cloud-hosted IP ranges.
 
 ## Author
 
