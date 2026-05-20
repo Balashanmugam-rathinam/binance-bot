@@ -222,6 +222,8 @@ Deployment on Streamlit Cloud may face Binance regional restrictions because Bin
 
 <img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/647cca11-2df6-4179-8f44-51aa48b16e08" />
 
+<img width="1919" height="1037" alt="image" src="https://github.com/user-attachments/assets/04088509-e7d1-48db-aba3-d50521376dd0" />
+
 
 ## Author
 
